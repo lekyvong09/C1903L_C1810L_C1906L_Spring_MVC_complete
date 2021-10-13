@@ -14,8 +14,14 @@
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
 <body>
-    <h2> Customer Relationship Manager</h2>
+    <div class="d-flex justify-content-center py-5">
+        <h2> Customer Relationship Manager</h2>
+    </div>
     <div id="container">
+        <div class="row pb-3">
+            <input class="btn btn-primary" type="button" value="Add Customer"
+                onclick="window.location.href='showFormForAdd'; return false;">
+        </div>
         <table class="table">
             <thead class="thead-dark">
                 <th scope="col">First Name</th>
