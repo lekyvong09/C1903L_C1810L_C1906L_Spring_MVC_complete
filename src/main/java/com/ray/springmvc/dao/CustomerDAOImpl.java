@@ -36,7 +36,8 @@ public class CustomerDAOImpl implements CustomerDAO{
         // get current hibernate session
         Session currentSession = sessionFactory.getCurrentSession();
 
-        currentSession.save(theCustomer);
+        // if the primaryKey is empty, then INSERT else UPDATE.
+        currentSession.saveOrUpdate(theCustomer);
     }
 
     @Override

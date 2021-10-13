@@ -19,6 +19,9 @@
   </div>
   <div class="container">
     <form:form action="saveCustomer" modelAttribute="customer" method="post">
+
+      <form:hidden path="id" />
+
       <div class="form-group row">
         <label for="firstName" class="col-2 col-form-label">First name:</label>
         <div class="col-4">
