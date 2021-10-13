@@ -22,20 +22,30 @@
             <input class="btn btn-primary" type="button" value="Add Customer"
                 onclick="window.location.href='showFormForAdd'; return false;">
         </div>
-        <table class="table">
-            <thead class="thead-dark">
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Email</th>
-            </thead>
-            <c:forEach items="${customers}" var="tempCustomer">
-                <tbody>
-                    <td>${tempCustomer.firstName}</td>
-                    <td>${tempCustomer.lastName}</td>
-                    <td>${tempCustomer.email}</td>
-                </tbody>
-            </c:forEach>
-        </table>
+        <div class="row">
+            <table class="table">
+                <thead class="thead-dark">
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Action</th>
+                </thead>
+                <c:forEach items="${customers}" var="tempCustomer">
+                    <%-- Example link http://...//customer/showFormForUpdate?customerId=1 --%>
+                    <c:url var="updateLink" value="/customer/showFormForUpdate">
+                        <c:param name="customerId" value="${tempCustomer.id}" />
+                    </c:url>
+                    <tbody>
+                        <td>${tempCustomer.firstName}</td>
+                        <td>${tempCustomer.lastName}</td>
+                        <td>${tempCustomer.email}</td>
+                        <td>
+                            <a href="${updateLink}">Update</a>
+                        </td>
+                    </tbody>
+                </c:forEach>
+            </table>
+        </div>
     </div>
 </body>
 </html>
