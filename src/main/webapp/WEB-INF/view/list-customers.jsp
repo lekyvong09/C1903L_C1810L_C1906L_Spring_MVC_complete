@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>List Customers</title>
@@ -17,10 +18,22 @@
     <div class="d-flex justify-content-center py-5">
         <h2> Customer Relationship Manager</h2>
     </div>
-    <div id="container">
-        <div class="row pb-3">
-            <input class="btn btn-primary" type="button" value="Add Customer"
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <input class="btn btn-primary form-group row" type="button" value="Add Customer"
                 onclick="window.location.href='showFormForAdd'; return false;">
+
+            <form:form action="search" method="get">
+                <div class="form-group row">
+                    <div class="col-6">
+                        <input name="theSearchName" class="form-control mr-2" id="search" type="search"
+                               placeholder="Search" aria-lable="Search">
+                    </div>
+                    <div class="col-6">
+                        <input class="btn btn-success" type="submit" value="Search">
+                    </div>
+                </div>
+            </form:form>
         </div>
         <div class="row">
             <table class="table">
