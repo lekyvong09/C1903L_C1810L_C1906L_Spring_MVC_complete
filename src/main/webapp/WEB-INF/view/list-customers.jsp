@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.ray.springmvc.constant.SortCustomerColumn" %><%--
   Created by IntelliJ IDEA.
   User: ray
   Date: 10/8/21
@@ -38,9 +38,21 @@
         <div class="row">
             <table class="table">
                 <thead class="thead-dark">
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Email</th>
+
+                    <%-- links for sorting --%>
+                    <c:url value="/customer/list" var="sortLinkFirstName">
+                        <c:param name="sort" value="<%=String.valueOf(SortCustomerColumn.FIRST_NAME) %>" />
+                    </c:url>
+                    <c:url value="/customer/list" var="sortLinkLastName">
+                        <c:param name="sort" value="<%=String.valueOf(SortCustomerColumn.LAST_NAME) %>" />
+                    </c:url>
+                    <c:url value="/customer/list" var="sortLinkEmail">
+                        <c:param name="sort" value="<%=String.valueOf(SortCustomerColumn.EMAIL) %>" />
+                    </c:url>
+
+                    <th scope="col"><a href="${sortLinkFirstName}">First Name</a></th>
+                    <th scope="col"><a href="${sortLinkLastName}">Last Name</a></th>
+                    <th scope="col"><a href="${sortLinkEmail}">Email</a></th>
                     <th scope="col">Action</th>
                 </thead>
                 <c:forEach items="${customers}" var="tempCustomer">

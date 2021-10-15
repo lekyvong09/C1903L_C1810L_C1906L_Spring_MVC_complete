@@ -1,5 +1,6 @@
 package com.ray.springmvc.controller;
 
+import com.ray.springmvc.constant.SortCustomerColumn;
 import com.ray.springmvc.entity.Customer;
 import com.ray.springmvc.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,16 @@ public class CustomerController {
     }
 
     @GetMapping("/list")
-    public String listCustomers(Model theModel) {
-        // get customers from the DAO
-        List<Customer> theCustomers = customerService.getCustomers();
+    public String listCustomers(Model theModel, @RequestParam(required = false) String sort) {
+
+        List<Customer> theCustomers = null;
+
+        if (sort != null) {
+            int theSortField = Integer.parseInt(sort);
+            theCustomers = customerService.getCustomers(theSortField);
+        } else {
+            theCustomers = customerService.getCustomers(SortCustomerColumn.LAST_NAME);
+        }
 
         theModel.addAttribute("customers", theCustomers);
 
