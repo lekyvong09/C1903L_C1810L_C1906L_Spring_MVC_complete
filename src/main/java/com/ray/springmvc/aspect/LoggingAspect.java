@@ -3,6 +3,7 @@ package com.ray.springmvc.aspect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -34,5 +35,13 @@ public class LoggingAspect {
         for (Object tempArg : args) {
             myLogger.info("===> argument: " + tempArg);
         }
+    }
+
+    @AfterReturning(pointcut = "forLoggingAspect()", returning = "theResult")
+    public void afterReturning(JoinPoint theJoinPoint, Object theResult) {
+        myLogger.info("===> in @AfterReturning advice: calling method: " + theJoinPoint.getSignature().toShortString());
+
+        // display return data
+        myLogger.info("===> Result: " + theResult);
     }
 }
