@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="INFO">
+    <Properties>
+        <Property name="log-path">/Users/ray/Dropbox/Aptech/Spring/SpringMVC</Property>
+    </Properties>
     <Appenders>
         <Console name="ConsoleAppender" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
         </Console>
-        <File name="FileAppender" fileName="application-${date:yyyyMMdd}.log" immediateFlush="false" append="true">
-            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        <File name="FileAppender" fileName="${log-path}/application-${date:yyyyMMdd}.log" immediateFlush="false" append="true">
+            <PatternLayout pattern="${log-path}/%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
     </Appenders>
     <Loggers>
