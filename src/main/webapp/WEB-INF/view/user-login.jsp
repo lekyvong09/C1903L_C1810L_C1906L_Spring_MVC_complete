@@ -122,6 +122,13 @@
                     <div class="d-flex justify-content-center">
                         <a href="#">Forgot your password?</a>
                     </div>
+
+                    <%--If login fail, Spring security will return an error param --%>
+                    <c:if test="${param.error != null}">
+                        <div class="alert alert-primary" role="alert">
+                            Sorry! you entered invalid username / password
+                        </div>
+                    </c:if>
                 </div>
             </div>
         </div>
