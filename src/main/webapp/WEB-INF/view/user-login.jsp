@@ -93,7 +93,10 @@
                     <h3>Sign In</h3>
                 </div>
                 <div class="card-body">
-                    <form:form action="${pageContext.request.contextPath}/authenticateTheUser" method="post">
+                    <form action="${pageContext.request.contextPath}/authenticateTheUser" method="post">
+                        <%-- manual adding CSRF tokens --%>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -113,7 +116,7 @@
                         <div class="form-group">
                             <input type="submit" value="Login" class="btn float-right login_btn">
                         </div>
-                    </form:form>
+                    </form>
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center links">
