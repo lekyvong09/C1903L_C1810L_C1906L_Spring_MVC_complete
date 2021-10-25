@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <title>List Customers</title>
@@ -25,8 +26,11 @@
         </div>
     </div>
 
-    <div class="d-flex justify-content-center py-5">
-        <h2> Customer Relationship Manager</h2>
+    <div class="d-flex justify-content-center pt-3">
+        <h2> Welcome to CRM system - <security:authentication property="principal.username" /> </h2>
+    </div>
+    <div class="d-flex justify-content-center pb-3">
+        <h5> You have roles: <security:authentication property="principal.authorities" /> </h5>
     </div>
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
