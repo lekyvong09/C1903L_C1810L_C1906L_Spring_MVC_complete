@@ -31,6 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity
                 .authorizeRequests()
                     // any request must be authenticated (must be logged in)
+                    .antMatchers("/resources/css/**").permitAll()
                     .anyRequest().authenticated()
                 .and()
                 .formLogin()

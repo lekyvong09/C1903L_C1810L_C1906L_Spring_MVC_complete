@@ -15,75 +15,77 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <style>
-        html,body{
-            background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            height: 100%;
-            font-family: 'Numans', sans-serif;
-        }
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" />
 
-        .container{
-            height: 100%;
-            align-content: center;
-        }
+<%--    <style>--%>
+<%--        html,body{--%>
+<%--            background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');--%>
+<%--            background-size: cover;--%>
+<%--            background-repeat: no-repeat;--%>
+<%--            height: 100%;--%>
+<%--            font-family: 'Numans', sans-serif;--%>
+<%--        }--%>
 
-        .card{
-            margin-top: auto;
-            margin-bottom: auto;
-            width: 400px;
-            background-color: rgba(0,0,0,0.5) !important;
-        }
+<%--        .container{--%>
+<%--            height: 100%;--%>
+<%--            align-content: center;--%>
+<%--        }--%>
 
-        .card-header h3{
-            color: white;
-        }
+<%--        .card{--%>
+<%--            margin-top: auto;--%>
+<%--            margin-bottom: auto;--%>
+<%--            width: 400px;--%>
+<%--            background-color: rgba(0,0,0,0.5) !important;--%>
+<%--        }--%>
 
-        .input-group-prepend span{
-            width: 50px;
-            background-color: #FFC312;
-            color: black;
-            border:0 !important;
-        }
+<%--        .card-header h3{--%>
+<%--            color: white;--%>
+<%--        }--%>
 
-        input:focus{
-            box-shadow: 0 0 0 0 !important;
+<%--        .input-group-prepend span{--%>
+<%--            width: 50px;--%>
+<%--            background-color: #FFC312;--%>
+<%--            color: black;--%>
+<%--            border:0 !important;--%>
+<%--        }--%>
 
-        }
+<%--        input:focus{--%>
+<%--            box-shadow: 0 0 0 0 !important;--%>
 
-        .remember{
-            color: white;
-        }
+<%--        }--%>
 
-        .remember input
-        {
-            width: 20px;
-            height: 20px;
-            margin-left: 15px;
-            margin-right: 5px;
-        }
+<%--        .remember{--%>
+<%--            color: white;--%>
+<%--        }--%>
 
-        .login_btn{
-            color: black;
-            background-color: #FFC312;
-            width: 100px;
-        }
+<%--        .remember input--%>
+<%--        {--%>
+<%--            width: 20px;--%>
+<%--            height: 20px;--%>
+<%--            margin-left: 15px;--%>
+<%--            margin-right: 5px;--%>
+<%--        }--%>
 
-        .login_btn:hover{
-            color: black;
-            background-color: white;
-        }
+<%--        .login_btn{--%>
+<%--            color: black;--%>
+<%--            background-color: #FFC312;--%>
+<%--            width: 100px;--%>
+<%--        }--%>
 
-        .links{
-            color: white;
-        }
+<%--        .login_btn:hover{--%>
+<%--            color: black;--%>
+<%--            background-color: white;--%>
+<%--        }--%>
 
-        .links a{
-            margin-left: 4px;
-        }
+<%--        .links{--%>
+<%--            color: white;--%>
+<%--        }--%>
 
-    </style>
+<%--        .links a{--%>
+<%--            margin-left: 4px;--%>
+<%--        }--%>
+
+<%--    </style>--%>
 </head>
 <body>
     <div class="container">
