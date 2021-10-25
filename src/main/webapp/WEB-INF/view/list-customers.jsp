@@ -18,13 +18,7 @@
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
-        <div class="d-flex align-items-end flex-column" style="height: 70px;">
-            <form:form action="${pageContext.request.contextPath}/logout" method="post" cssClass="mt-auto">
-                <input class="btn btn-success" type="submit" value="Logout"/>
-            </form:form>
-        </div>
-    </div>
+<c:import url="navbar.jsp"/>
 
     <div class="d-flex justify-content-center pt-3">
         <h2> Welcome to CRM system - <security:authentication property="principal.username" /> </h2>
