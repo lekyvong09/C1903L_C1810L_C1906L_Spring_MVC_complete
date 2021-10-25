@@ -129,6 +129,11 @@
                             Sorry! you entered invalid username / password
                         </div>
                     </c:if>
+                    <c:if test="${param.logout != null}">
+                        <div class="alert alert-success" role="alert">
+                            You have been logged out.
+                        </div>
+                    </c:if>
                 </div>
             </div>
         </div>

@@ -13,8 +13,18 @@
     <title>List Customers</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
+    <div class="container">
+        <div class="d-flex align-items-end flex-column" style="height: 70px;">
+            <form:form action="${pageContext.request.contextPath}/logout" method="post" cssClass="mt-auto">
+                <input class="btn btn-success" type="submit" value="Logout"/>
+            </form:form>
+        </div>
+    </div>
+
     <div class="d-flex justify-content-center py-5">
         <h2> Customer Relationship Manager</h2>
     </div>
