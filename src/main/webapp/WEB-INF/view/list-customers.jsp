@@ -20,12 +20,15 @@
 <body>
 <c:import url="navbar.jsp"/>
 
-    <div class="d-flex justify-content-center pt-3">
-        <h2> Welcome to CRM system - <security:authentication property="principal.username" /> </h2>
-    </div>
-    <div class="d-flex justify-content-center pb-3">
-        <h5> You have roles: <security:authentication property="principal.authorities" /> </h5>
-    </div>
+    <security:authorize access="hasRole('EMPLOYEE')">
+        <div class="d-flex justify-content-center pt-3">
+            <h2> Welcome to CRM system - <security:authentication property="principal.username" /> </h2>
+        </div>
+        <div class="d-flex justify-content-center pb-3">
+            <h5> You have roles: <security:authentication property="principal.authorities" /> </h5>
+        </div>
+    </security:authorize>
+
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
             <input class="btn btn-primary form-group row" type="button" value="Add Customer"
