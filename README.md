@@ -52,3 +52,34 @@ drop table if exists users;
      
  insert into authorities(username,authority) values ('ray','ROLE_EMPLOYEE'),('ray','ROLE_ADMIN'),('tommy','ROLE_EMPLOYEE');
 ```
+
+
+# Database - table user with bcrypt password
+```
+use customer_tracker;
+ set foreign_key_checks = 0;
+
+ drop table if exists users;
+ create table users (
+     username varchar(50) NOT NULL, 
+     password varchar(68) NOT NULL, 
+     enabled tinyint(1) NOT NULL, 
+     PRIMARY KEY (username)
+     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+     
+ insert into users values ('ray','$2a$12$xjosY8TFP4iBjhd/SVwZz.C15uCtAu9BwghBPr0iybUeLjNBJItcK',1), ('tommy','$2a$12$MGOF3pyaPnHMhDGzPL/zzONLYM2Ui6oRvVVXtbPaBnIh1XSB/0b/2',1);
+
+ drop table if exists authorities;
+ create table authorities (
+     id int(11) NOT NULL AUTO_INCREMENT,
+     username varchar(50) NOT NULL, 
+     authority varchar(50) NOT NULL, 
+     PRIMARY KEY (id),
+     UNIQUE KEY authorities_idx_1(username,authority),
+     CONSTRAINT authorities_ibfk_1 FOREIGN KEY (username) REFERENCES users (username)
+     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+     
+ insert into authorities(username,authority) values ('ray','ROLE_EMPLOYEE'),('ray','ROLE_ADMIN'),('tommy','ROLE_EMPLOYEE');
+
+ set foreign_key_checks = 1;
+```
