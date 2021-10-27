@@ -46,4 +46,12 @@ public class RegisteredUser {
     public void setMatchingPassword(String matchingPassword) {
         this.matchingPassword = matchingPassword;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
