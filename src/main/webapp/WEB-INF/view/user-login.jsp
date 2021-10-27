@@ -17,7 +17,7 @@
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" />
 
-<%--    <style>--%>
+    <style>
 <%--        html,body{--%>
 <%--            background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');--%>
 <%--            background-size: cover;--%>
@@ -85,7 +85,7 @@
 <%--            margin-left: 4px;--%>
 <%--        }--%>
 
-<%--    </style>--%>
+    </style>
 </head>
 <body>
     <div class="container">
@@ -122,7 +122,8 @@
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center links">
-                        Don't have an account?<a href="#">Sign Up</a>
+                        Don't have an account?
+                        <a href="${pageContext.request.contextPath}/register/showRegistrationForm">Sign Up</a>
                     </div>
                     <div class="d-flex justify-content-center">
                         <a href="#">Forgot your password?</a>
