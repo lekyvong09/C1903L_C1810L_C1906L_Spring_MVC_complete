@@ -8,6 +8,9 @@ import java.util.List;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     @Column(name="username")
     private String username;
 
@@ -20,16 +23,28 @@ public class User {
     @Column(name="enabled")
     private boolean enabled;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user",
-                cascade = {CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE})
-    private List<Authority> authorities;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name="users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private List<Role> roles;
 
     public User() {}
 
-    public User(String username, String password, boolean enabled) {
+    public User(String username, String password, String email, boolean enabled, List<Role> roles) {
         this.username = username;
         this.password = password;
+        this.email = email;
         this.enabled = enabled;
+        this.roles = roles;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -48,6 +63,14 @@ public class User {
         this.password = password;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public boolean isEnabled() {
         return enabled;
     }
@@ -56,12 +79,12 @@ public class User {
         this.enabled = enabled;
     }
 
-    public List<Authority> getAuthorities() {
-        return authorities;
+    public List<Role> getRoles() {
+        return roles;
     }
 
-    public void setAuthorities(List<Authority> authorities) {
-        this.authorities = authorities;
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     @Override
@@ -69,7 +92,9 @@ public class User {
         return "User{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
                 ", enabled=" + enabled +
+                ", roles=" + roles +
                 '}';
     }
 }
