@@ -1,12 +1,24 @@
 package com.ray.springmvc.entity;
 
+import com.ray.springmvc.validation.FieldMatch;
+import com.ray.springmvc.validation.ValidEmail;
+
+import javax.validation.constraints.Size;
+
+@FieldMatch(first = "password", second = "matchingPassword", message = "The password fields must match")
 public class RegisteredUser {
 
+    @Size(min = 1, message = "is required")
     private String userName;
 
+    @Size(min = 1, message = "is required")
     private String password;
 
+    @Size(min = 1, message = "is required")
     private String matchingPassword;
+
+    @ValidEmail
+    private String email;
 
     public RegisteredUser() {
     }

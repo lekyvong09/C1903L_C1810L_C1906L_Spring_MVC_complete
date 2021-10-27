@@ -83,3 +83,22 @@ use customer_tracker;
 
  set foreign_key_checks = 1;
 ```
+
+
+# Database add email to table users
+```
+use customer_tracker;
+ set foreign_key_checks = 0;
+
+ drop table if exists users;
+ create table users (
+     username varchar(50) NOT NULL, 
+     password varchar(68) NOT NULL,
+     email varchar(250) NULL,
+     enabled tinyint(1) NOT NULL, 
+     PRIMARY KEY (username)
+     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+     
+ insert into users values ('ray','$2a$12$yrqpXaFZTUXIHkriRkWEu.DiCGPMPj1JKjYEhN3Iqf4mrVRjgJxNK','ray@email.com',1), ('tommy','$2a$12$MGOF3pyaPnHMhDGzPL/zzONLYM2Ui6oRvVVXtbPaBnIh1XSB/0b/2','tommy@email.com',1);
+ set foreign_key_checks = 1;
+```

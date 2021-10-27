@@ -22,4 +22,11 @@ public class UserDAOImpl implements UserDAO{
 
         return currentSession.get(User.class, username);
     }
+
+    @Override
+    public void save(User user) {
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        currentSession.saveOrUpdate(user);
+    }
 }
